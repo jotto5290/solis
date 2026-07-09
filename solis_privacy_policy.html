@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Privacy Policy for Solis, an offline-first private mindfulness mood journal.">
+  <meta name="theme-color" content="#6d5dfc">
+  <title>Privacy Policy | Solis</title>
+  <style>
+    :root {
+      --ink: #20213a;
+      --muted: #696b83;
+      --primary: #6d5dfc;
+      --primary-dark: #5142dc;
+      --accent: #ef7da4;
+      --teal: #39b8a5;
+      --surface: rgba(255,255,255,.82);
+      --line: rgba(70, 65, 120, .13);
+      --shadow: 0 24px 70px rgba(54, 45, 130, .15);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.72;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(239,125,164,.25), transparent 30rem),
+        radial-gradient(circle at 88% 2%, rgba(57,184,165,.20), transparent 28rem),
+        linear-gradient(145deg, #f8f5ff 0%, #f7fbff 52%, #fff8fa 100%);
+      min-height: 100vh;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      border-radius: 50%;
+      filter: blur(8px);
+      opacity: .7;
+    }
+
+    body::before {
+      width: 18rem;
+      height: 18rem;
+      top: 18%;
+      left: -8rem;
+      background: rgba(109,93,252,.12);
+    }
+
+    body::after {
+      width: 21rem;
+      height: 21rem;
+      right: -9rem;
+      bottom: 5%;
+      background: rgba(239,125,164,.12);
+    }
+
+    a { color: var(--primary-dark); }
+    a:hover { text-decoration-thickness: 2px; }
+
+    .shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 64px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(28px, 6vw, 62px);
+      border: 1px solid rgba(255,255,255,.8);
+      border-radius: 34px;
+      background: linear-gradient(135deg, rgba(255,255,255,.88), rgba(255,255,255,.62));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -90px;
+      top: -110px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(109,93,252,.21), rgba(239,125,164,.19));
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      font-size: .83rem;
+      color: #504a78;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 14px 30px rgba(109,93,252,.28);
+    }
+
+    .logo svg { width: 26px; height: 26px; }
+
+    h1 {
+      max-width: 760px;
+      margin: 26px 0 12px;
+      font-size: clamp(2.35rem, 7vw, 5.1rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+
+    .lead {
+      max-width: 770px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.1vw, 1.22rem);
+    }
+
+    .meta-row,
+    .actions,
+    .privacy-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .meta-row { margin-top: 24px; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(109,93,252,.09);
+      color: #514a86;
+      border: 1px solid rgba(109,93,252,.12);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .tag .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 5px rgba(57,184,165,.12);
+    }
+
+    .actions { margin-top: 30px; }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 0 17px;
+      border-radius: 14px;
+      font: inherit;
+      font-weight: 800;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      box-shadow: 0 13px 28px rgba(81,66,220,.24);
+    }
+    .btn-secondary {
+      color: #4f4a75;
+      background: rgba(255,255,255,.72);
+      border: 1px solid var(--line);
+    }
+
+    .privacy-pills {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .privacy-pills li {
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.62);
+      color: #5e5f78;
+      font-weight: 700;
+      font-size: .86rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 24px;
+      margin-top: 26px;
+      align-items: start;
+    }
+
+    .toc,
+    .content {
+      border: 1px solid rgba(255,255,255,.85);
+      background: var(--surface);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 50px rgba(55,49,112,.10);
+    }
+
+    .toc {
+      position: sticky;
+      top: 18px;
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    .toc h2 {
+      margin: 0 0 12px;
+      font-size: .92rem;
+      color: #77748f;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .toc a {
+      display: block;
+      padding: 9px 10px;
+      margin: 2px 0;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #55566f;
+      font-size: .91rem;
+    }
+
+    .toc a:hover,
+    .toc a:focus-visible {
+      color: var(--primary-dark);
+      background: rgba(109,93,252,.08);
+      outline: none;
+    }
+
+    .content {
+      border-radius: 28px;
+      padding: clamp(24px, 5vw, 52px);
+    }
+
+    .intro-callout {
+      margin-bottom: 34px;
+      padding: 21px 22px;
+      border-left: 4px solid var(--teal);
+      border-radius: 0 16px 16px 0;
+      background: linear-gradient(90deg, rgba(57,184,165,.10), rgba(255,255,255,.35));
+      color: #3f5261;
+    }
+
+    section {
+      scroll-margin-top: 24px;
+      padding: 10px 0 28px;
+    }
+
+    section + section {
+      border-top: 1px solid var(--line);
+      padding-top: 34px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .number {
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: white;
+      font-size: .9rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 10px 22px rgba(109,93,252,.18);
+    }
+
+    h2.section-title {
+      margin: 3px 0 0;
+      font-size: clamp(1.25rem, 3vw, 1.62rem);
+      line-height: 1.25;
+      letter-spacing: -.02em;
+    }
+
+    p { margin: 0 0 15px; }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 1.2rem;
+    }
+
+    li { margin: 8px 0; }
+    strong { color: #30314f; }
+
+    .contact-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 15px;
+      padding: 21px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(109,93,252,.10), rgba(239,125,164,.09));
+      border: 1px solid rgba(109,93,252,.13);
+    }
+
+    .contact-card a {
+      font-weight: 900;
+      word-break: break-word;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 16px 0;
+      color: #77798e;
+      font-size: .88rem;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translate(-50%, 20px);
+      padding: 11px 16px;
+      border-radius: 12px;
+      background: #282940;
+      color: #fff;
+      font-weight: 700;
+      font-size: .9rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: .2s ease;
+      box-shadow: 0 15px 35px rgba(0,0,0,.18);
+    }
+
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (max-width: 820px) {
+      .shell { width: min(100% - 20px, 760px); padding-top: 10px; }
+      .hero { border-radius: 24px; }
+      .layout { grid-template-columns: 1fr; }
+      .toc { position: static; }
+      .toc nav { columns: 2; }
+    }
+
+    @media (max-width: 560px) {
+      .toc nav { columns: 1; }
+      .btn { width: 100%; }
+      .contact-card { align-items: flex-start; }
+    }
+
+    @media print {
+      body { background: white; color: #111; }
+      body::before, body::after, .toc, .actions, .toast { display: none !important; }
+      .shell { width: 100%; padding: 0; }
+      .hero, .content { box-shadow: none; border: 0; background: white; padding: 20px 0; }
+      .layout { display: block; margin: 0; }
+      .hero::after { display: none; }
+      section { break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3.25c3.45 2.23 5.5 5.12 5.5 8.1A5.5 5.5 0 0 1 12 16.9a5.5 5.5 0 0 1-5.5-5.55c0-2.98 2.05-5.87 5.5-8.1Z" fill="currentColor" opacity=".95"/>
+            <path d="M4.5 14.1c1.72.08 3.18.61 4.35 1.58 1.32 1.1 2.37 2.78 3.15 5.07-2.86-.1-5.05-.83-6.55-2.18-1.28-1.16-1.6-2.65-.95-4.47Zm15 0c-1.72.08-3.18.61-4.35 1.58-1.32 1.1-2.37 2.78-3.15 5.07 2.86-.1 5.05-.83 6.55-2.18 1.28-1.16 1.6-2.65.95-4.47Z" fill="currentColor" opacity=".72"/>
+          </svg>
+        </span>
+        Solis
+      </div>
+
+      <h1>Privacy Policy</h1>
+      <p class="lead">A clear explanation of how Solis protects your private reflections through an offline-first architecture, on-device storage, and zero external data collection.</p>
+
+      <div class="meta-row">
+        <span class="tag"><span class="dot"></span> Last updated: July 9, 2026</span>
+        <span class="tag">Offline-first</span>
+        <span class="tag">100% on-device</span>
+      </div>
+
+      <ul class="privacy-pills" aria-label="Privacy highlights">
+        <li>Zero cloud sync</li>
+        <li>No analytics</li>
+        <li>No advertising SDKs</li>
+        <li>No external AI APIs</li>
+      </ul>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="shareButton" type="button" aria-label="Share this privacy policy">
+          Share policy
+        </button>
+        <button class="btn btn-secondary" type="button" onclick="window.print()">
+          Print or save PDF
+        </button>
+        <a class="btn btn-secondary" href="mailto:support@sakhnatrader.online?subject=Solis%20Privacy%20Policy">
+          Contact support
+        </a>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="toc" aria-label="Table of contents">
+        <h2>Contents</h2>
+        <nav>
+          <a href="#collection">1. Information Collection</a>
+          <a href="#permissions">2. Device Permissions</a>
+          <a href="#security">3. Security & Encryption</a>
+          <a href="#retention">4. Retention & Deletion</a>
+          <a href="#children">5. Children’s Privacy</a>
+          <a href="#changes">6. Policy Changes</a>
+          <a href="#contact">7. Contact Us</a>
+        </nav>
+      </aside>
+
+      <article class="content">
+        <div class="intro-callout">
+          Solis (the “App”) is designed and built to be an offline-first, highly secure, and private mindfulness mood journal. This Privacy Policy describes how your information is handled when you download, install, and use Solis.
+        </div>
+
+        <p>We believe that your personal thoughts, reflections, and emotional tracking data are entirely yours. Therefore, Solis is architected with a strict privacy-first model: zero data collection, zero cloud synchronization, and 100% on-device storage.</p>
+
+        <section id="collection">
+          <div class="section-heading"><span class="number">1</span><h2 class="section-title">Information Collection and Use</h2></div>
+          <p>Solis does not collect, harvest, transmit, share, or store any of your personal information, journal entries, mood records, or usage telemetry on external servers.</p>
+          <ul>
+            <li><strong>Journal Entries &amp; Mood Data:</strong> All text, feelings, reflection responses, dates, and streak statistics you input are saved exclusively inside a secure, sandboxed local database (Room SQLite) on your physical Android device. This data never leaves your device.</li>
+            <li><strong>On-Device AI/Processing:</strong> Any intelligence, templates, or prompt-generation features operate entirely offline or locally using on-device resources. No search queries or journal text are uploaded to any external artificial intelligence APIs.</li>
+            <li><strong>No Analytics or Tracking:</strong> Solis does not use third-party tracking software, advertising SDKs, analytics libraries, or telemetry frameworks. We do not track how many times you open the App or which features you use.</li>
+          </ul>
+        </section>
+
+        <section id="permissions">
+          <div class="section-heading"><span class="number">2</span><h2 class="section-title">Device Permissions</h2></div>
+          <p>To provide standard features, Solis may request access to certain system permissions. You have complete control over whether to grant these permissions, and you can revoke them in your device settings at any time.</p>
+          <ul>
+            <li><strong>Biometric Authentication (Optional):</strong> Used solely to secure your local journal entries with your device’s fingerprint or facial-recognition scanner. Your actual biometric data remains securely stored within your device’s Trusted Execution Environment (TEE) and is never accessed or seen by Solis.</li>
+            <li><strong>Notifications (Optional):</strong> Used to send daily local reminders to reflect and journal. These reminders are generated locally by your device’s system scheduler and do not involve external servers.</li>
+          </ul>
+        </section>
+
+        <section id="security">
+          <div class="section-heading"><span class="number">3</span><h2 class="section-title">Data Security and Encryption</h2></div>
+          <p>Because all of your data is stored locally on your device, the security of your journal depends on the security of your physical phone.</p>
+          <ul>
+            <li>If you enable the Security Lock feature in Solis, the App uses Android’s native cryptographic APIs and biometric frameworks to secure access to the interface.</li>
+            <li>To protect your data, we recommend keeping your device operating system updated, using a strong screen lock such as a PIN, password, or biometrics, and avoiding rooting your device.</li>
+          </ul>
+        </section>
+
+        <section id="retention">
+          <div class="section-heading"><span class="number">4</span><h2 class="section-title">Data Retention and Deletion</h2></div>
+          <p>You have complete and absolute ownership of your data.</p>
+          <ul>
+            <li><strong>Self-Service Deletion:</strong> You can permanently delete all journal entries and application configuration files at any time through the “Delete All Data” option in the Solis settings menu.</li>
+            <li><strong>Uninstallation:</strong> Uninstalling the App from your device automatically purges all stored journal databases, settings, and streak metrics. This process is irreversible, and the data cannot be recovered by us.</li>
+            <li><strong>Data Export:</strong> Solis provides an offline backup and export utility that allows you to save your journal database file directly to your local file system or a physical backup drive.</li>
+          </ul>
+        </section>
+
+        <section id="children">
+          <div class="section-heading"><span class="number">5</span><h2 class="section-title">Children’s Privacy</h2></div>
+          <p>Because Solis does not collect, process, or transmit personal data from anyone, the App is designed to support children’s privacy requirements, including those under COPPA and GDPR. It is intended to be safe for use by individuals of all ages.</p>
+        </section>
+
+        <section id="changes">
+          <div class="section-heading"><span class="number">6</span><h2 class="section-title">Changes to This Privacy Policy</h2></div>
+          <p>We may update this Privacy Policy from time to time. However, because our core architectural philosophy is based on complete offline privacy and zero data collection, future updates will never compromise your offline data sovereignty without your explicit opt-in. Any updates will be posted directly within this document.</p>
+        </section>
+
+        <section id="contact">
+          <div class="section-heading"><span class="number">7</span><h2 class="section-title">Contact Us</h2></div>
+          <p>For questions or feedback about this Privacy Policy or Solis’s offline-first architecture, contact us:</p>
+          <div class="contact-card">
+            <div>
+              <strong>Email support</strong><br>
+              <span>We welcome privacy and product questions.</span>
+            </div>
+            <a href="mailto:support@sakhnatrader.online">support@sakhnatrader.online</a>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <footer>
+      © <span id="year">2026</span> Solis. Your thoughts stay yours.
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Link copied</div>
+
+  <script>
+    const shareButton = document.getElementById('shareButton');
+    const toast = document.getElementById('toast');
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      window.setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+
+    shareButton.addEventListener('click', async () => {
+      const data = {
+        title: 'Solis Privacy Policy',
+        text: 'Read the Privacy Policy for Solis.',
+        url: window.location.href
+      };
+
+      try {
+        if (navigator.share) {
+          await navigator.share(data);
+        } else if (navigator.clipboard) {
+          await navigator.clipboard.writeText(window.location.href);
+          showToast('Link copied to clipboard');
+        } else {
+          showToast('Copy the URL from your browser');
+        }
+      } catch (error) {
+        if (error && error.name !== 'AbortError') {
+          showToast('Unable to share automatically');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
